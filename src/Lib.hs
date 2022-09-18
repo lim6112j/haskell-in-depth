@@ -51,8 +51,10 @@ locateByName' ps ls s =
     Just number -> lookup' number ls
     Nothing -> Nothing
 
+locations :: Locations
 locations = [("1", "seoul"), ("2", "bussan")]
 
+phones :: PhoneNumbers
 phones = [("kim", "1"), ("kwon", "2"), ("jane", "3")]
 
 someFunc :: IO ()
@@ -64,4 +66,4 @@ someFunc = print $ doubleStrNumber2 "3"
 someFunc2 :: IO ()
 someFunc2 = print $ plusStrNumbers "3" "4"
 
-someFunc3 = print $ locateByName phones locations "jane"
+someFunc3 = print $ locateByName phones locations "kim"
