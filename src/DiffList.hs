@@ -2,6 +2,8 @@
 
 module DiffList where
 
+import Control.Monad.Writer (MonadWriter (tell), Writer, runWriter)
+
 newtype DiffList a = DiffList {getDiffList :: [a] -> [a]}
 
 toDiffList :: [a] -> DiffList a
@@ -25,3 +27,16 @@ diffListFunc = do
   let concatDiff = toDiff `mappend` toDiff2
   let toList = fromDiffList concatDiff
   print toList
+
+gcd' :: Int -> Int -> Writer (DiffList String) Int
+gcd' a b
+  | b == 0 = do
+    tell (toDiffList ["Finished with " ++ show a])
+    return a
+  | otherwise = do
+    result <- gcd' b (a `mod` b)
+    tell (toDiffList [show a ++ " mod " ++ show b ++ " = " ++ show (a `mod` b)])
+    return result
+
+gcdFunc :: IO ()
+gcdFunc = mapM_ putStrLn . fromDiffList . snd . runWriter $ gcd' 110 34
