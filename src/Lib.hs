@@ -5,10 +5,11 @@ module Lib
   ( someFunc,
     someFunc2,
     someFunc3,
+    someFunc4,
   )
 where
 
-import System.Posix.Internals (lstat)
+import Control.Monad.Reader
 import Text.Read (readMaybe)
 
 doubleStrNumber :: (Read a, Num a) => String -> Maybe a
@@ -57,6 +58,28 @@ locations = [("1", "seoul"), ("2", "bussan")]
 phones :: PhoneNumbers
 phones = [("kim", "1"), ("kwon", "2"), ("jane", "3")]
 
+-- reader monad
+data Config = Config {verbose :: Bool}
+
+getConfiguration :: IO Config
+getConfiguration = pure Config {verbose = True}
+
+type ConfigM = Reader Config
+
+work :: ConfigM ()
+work = doSomething
+
+doSomething :: ConfigM ()
+doSomething = doSomethingSpecial
+
+doSomethingSpecial :: ConfigM ()
+doSomethingSpecial = do
+  vrb <- asks verbose
+  when vrb beVerbose
+
+beVerbose :: ConfigM ()
+beVerbose = pure ()
+
 someFunc :: IO ()
 -- someFunc = putStrLn $ printMaybe $ doubleStrNumber "3"
 
@@ -66,4 +89,11 @@ someFunc = print $ doubleStrNumber2 "3"
 someFunc2 :: IO ()
 someFunc2 = print $ plusStrNumbers "3" "4"
 
+someFunc3 :: IO ()
 someFunc3 = print $ locateByName phones locations "kim"
+
+someFunc4 :: IO ()
+someFunc4 = do
+  config <- getConfiguration
+  let result = runReader work config
+  print result
