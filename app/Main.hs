@@ -1,6 +1,7 @@
 module Main (main) where
 
-import Lib
+import GenSQL
+import Lib (someFunc4)
 
 main :: IO ()
-main = someFunc4
+main = testSQL
