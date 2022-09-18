@@ -6,4 +6,4 @@ import Lib (someFunc4)
 
 main :: IO ()
 --main = testSQL
-main = gcdFunc
+main = gcdFunc 11001 34117

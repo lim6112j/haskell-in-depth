@@ -28,6 +28,7 @@ library
       DiffList
       GenSQL
       Lib
+      MReader
   other-modules:
       Paths_haskell_in_depth
   hs-source-dirs:

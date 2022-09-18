@@ -1,8 +1,9 @@
 {-# OPTIONS_GHC -Wno-type-defaults #-}
 
+-- from haskell for greate good
 module DiffList where
 
-import Control.Monad.Writer (MonadWriter (tell), Writer, runWriter)
+import Control.Monad.Writer (Writer, runWriter, tell)
 
 newtype DiffList a = DiffList {getDiffList :: [a] -> [a]}
 
@@ -38,5 +39,5 @@ gcd' a b
     tell (toDiffList [show a ++ " mod " ++ show b ++ " = " ++ show (a `mod` b)])
     return result
 
-gcdFunc :: IO ()
-gcdFunc = mapM_ putStrLn . fromDiffList . snd . runWriter $ gcd' 110 34
+gcdFunc :: Int -> Int -> IO ()
+gcdFunc a b = mapM_ putStrLn . fromDiffList . snd . runWriter $ gcd' a b
