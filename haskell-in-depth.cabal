@@ -31,6 +31,7 @@ library
       MReader
       MState
       MWriter
+      TypeClass
   other-modules:
       Paths_haskell_in_depth
   hs-source-dirs:
