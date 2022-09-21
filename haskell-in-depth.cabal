@@ -29,6 +29,7 @@ library
       GenSQL
       Lib
       MReader
+      MWriter
   other-modules:
       Paths_haskell_in_depth
   hs-source-dirs:
