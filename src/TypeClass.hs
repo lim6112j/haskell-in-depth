@@ -1,7 +1,10 @@
 {-# LANGUAGE DeriveAnyClass #-}
-{-# OPTIONS_GHC -Wno-missing-export-lists #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StandaloneDeriving #-}
 
 module TypeClass where
+
+import Fmt (Buildable, build, fmt, fmtLn, nameF, unwordsF, (+||), (||+))
 
 data Direction = North | East | South | West deriving (Eq, Enum, Bounded, Show, CyclicEnum)
 
@@ -40,3 +43,50 @@ rotateManyStep = scanl $ flip rotate
 orientMany :: [Direction] -> [Turn]
 orientMany ds@(_ : _ : _) = zipWith orient ds (tail ds)
 orientMany _ = []
+
+instance Semigroup Turn where
+  TNone <> t = t
+  TLeft <> TLeft = TAround
+  TLeft <> TRight = TNone
+  TLeft <> TAround = TRight
+  TRight <> TRight = TAround
+  TRight <> TAround = TLeft
+  TAround <> TAround = TNone
+  t1 <> t2 = t2 <> t1
+
+instance Monoid Turn where
+  mempty = TNone
+
+-- now Turn is monoid
+rotateMany' :: Direction -> [Turn] -> Direction
+rotateMany' d ts = rotate (mconcat ts) d
+
+-- file
+deriving instance Read Direction
+
+deriving instance Read Turn
+
+-- for using fmt package , reporting
+
+instance Buildable Direction where
+  build North = "N"
+  build East = "E"
+  build West = "W"
+  build South = "S"
+
+instance Buildable Turn where
+  build TNone = "--"
+  build TRight = "->"
+  build TLeft = "<-"
+  build TAround = "||"
+
+rotateFromFile :: Direction -> FilePath -> IO ()
+rotateFromFile dir fname = do
+  f <- readFile fname
+  let turns = map read $ lines f
+      finalDir = rotateMany dir turns
+      dirs = rotateManyStep dir turns
+  fmtLn $ "Final Direction: " +|| finalDir ||+ ""
+  fmt $ nameF "Intermediate directions" (unwordsF dirs)
+
+-- orientFromFile :: FilePath -> IO ()
