@@ -14,5 +14,6 @@ main :: IO ()
 main = do
   args <- getArgs
   case args of
-    ["-r", fname, dir] -> rotateFromFile (read dir) (show fname)
+    ["-r", fname, dir] -> rotateFromFile (read dir) fname
+    ["-o", fname] -> orientFromFile fname
     _ -> putStrLn $ "Usage: locator -r filename direction"

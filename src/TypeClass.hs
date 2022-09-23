@@ -89,4 +89,8 @@ rotateFromFile dir fname = do
   fmtLn $ "Final Direction: " +|| finalDir ||+ ""
   fmt $ nameF "Intermediate directions" (unwordsF dirs)
 
--- orientFromFile :: FilePath -> IO ()
+orientFromFile :: FilePath -> IO ()
+orientFromFile fname = do
+  f <- readFile fname
+  let dirs = map read $ lines f
+  fmt $ nameF "All turns" (unwordsF $ orientMany dirs)
