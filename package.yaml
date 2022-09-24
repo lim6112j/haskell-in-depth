@@ -74,6 +74,12 @@ executables:
     other-modules: [EvalRPN]
     dependencies:
     - mtl
+  evalrpn2:
+    source-dirs: expr/rpn
+    main: evalrpn2.hs
+    other-modules: [EvalRPNTrans]
+    dependencies:
+    - mtl
 tests:
   haskell-in-depth-test:
     main:                Spec.hs
