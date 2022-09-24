@@ -63,6 +63,21 @@ library contexts
     , text
   default-language: Haskell2010
 
+executable evalrpn1
+  main-is: evalrpn1.hs
+  other-modules:
+      EvalRPN
+  hs-source-dirs:
+      expr/rpn
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , fmt
+    , mtl
+    , random
+    , text
+  default-language: Haskell2010
+
 executable expr-simple
   main-is: Main.hs
   other-modules:
