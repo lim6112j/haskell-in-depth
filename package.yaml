@@ -25,6 +25,7 @@ dependencies:
 - mtl
 - text
 - fmt
+- random
 ghc-options:
 - -Wall
 - -Wcompat
@@ -49,7 +50,6 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - haskell-in-depth
-
 tests:
   haskell-in-depth-test:
     main:                Spec.hs
@@ -60,3 +60,11 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - haskell-in-depth
+    # Chapter 2
+  typeclass-test:
+    source-dirs: test
+    main: TypeClass-test.hs
+    other-modules: []
+    dependencies:
+    - haskell-in-depth
+    - random >=1.2 && <1.3
