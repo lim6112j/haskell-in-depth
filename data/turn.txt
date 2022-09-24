@@ -1,4 +1,0 @@
-TRight
-TRight
-TAround
-TLeft

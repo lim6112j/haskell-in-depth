@@ -7,3 +7,5 @@
             stack exec haskell-in-depth-exe -- -r data/turn.txt North
             <!-- test ghci -->
             stack ghci haskell-in-depth:typeclass-test
+<!-- ghci executable person-derived -->
+            stack repl :person-derived

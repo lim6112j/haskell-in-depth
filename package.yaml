@@ -39,7 +39,13 @@ ghc-options:
 
 library:
   source-dirs: src
-
+internal-libraries:
+   contexts:
+        source-dirs: ch02
+        exposed-modules: Contexts
+        other-modules: []
+        dependencies:
+          - mtl >=2.0 && <2.3
 executables:
   haskell-in-depth-exe:
     main:                Main.hs
@@ -50,6 +56,18 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - haskell-in-depth
+  person-text:
+    main: text-show.hs
+    source-dirs: ch02/person
+    other-modules: Person
+    dependencies:
+        - text-show
+  expr-simple:
+    main: Main.hs
+    source-dirs: expr
+    exposed-modules: Expr
+    dependencies:
+        - text-show
 tests:
   haskell-in-depth-test:
     main:                Spec.hs

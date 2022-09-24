@@ -1,6 +1,10 @@
+{-# LANGUAGE StandaloneDeriving #-}
 {-# OPTIONS_GHC -Wno-orphans #-}
 
 import Control.Monad (replicateM)
+import Control.Monad.Cont
+import Data.List
+import System.Exit (exitFailure)
 import System.Random
 import System.Random.Stateful (uniformM, uniformRM)
 import TypeClass
@@ -19,7 +23,9 @@ instance UniformRange Direction where
     pure $ toEnum res
 
 instance Uniform Direction where
-  uniformM rng = uniformRM (minBound, maxBound) rng
+  uniformM = uniformRM (minBound, maxBound)
+
+deriving instance Ord Turn
 
 uniformIO :: Uniform a => IO a
 uniformIO = getStdRandom uniform
@@ -33,6 +39,27 @@ randomTurns = uniformsIO
 randomDirections :: Int -> IO [Direction]
 randomDirections = uniformsIO
 
+randomWriteFile :: (Show a) => Int -> (Int -> IO [a]) -> FilePath -> IO ()
+randomWriteFile n gen fname = do
+  xs <- gen n
+  writeFile fname $ unlines $ map show xs
+
+test_allTurnsInUse :: Bool
+test_allTurnsInUse =
+  sort (nub [orient d1 d2 | d1 <- every, d2 <- every]) == every
+
+test_rotationMonoidAgree :: [Turn] -> Bool
+test_rotationMonoidAgree ts =
+  and [rotateMany d ts == rotateMany' d ts | d <- every]
+
+test_orientRotateAgree :: [Direction] -> Bool
+test_orientRotateAgree [] = True
+test_orientRotateAgree ds@(d : _) = ds == rotateManyStep d (orientMany ds)
+
 main :: IO ()
 main = do
-  xs <- randomDirections 10
+  ds <- randomDirections 1000
+  ts <- randomTurns 1000
+  when
+    (not $ and [test_allTurnsInUse, test_orientRotateAgree ds, test_rotationMonoidAgree ts])
+    exitFailure
