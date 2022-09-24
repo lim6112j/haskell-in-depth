@@ -45,11 +45,13 @@ internal-libraries:
         exposed-modules: Contexts
         other-modules: []
         dependencies:
-          - mtl >=2.0 && <2.3
+        - mtl >=2.0 && <2.3
 executables:
   haskell-in-depth-exe:
     main:                Main.hs
-    source-dirs:         app
+    source-dirs:
+    - app
+    - ch02
     ghc-options:
     - -threaded
     - -rtsopts

@@ -113,9 +113,11 @@ executable expr-simple
 executable haskell-in-depth-exe
   main-is: Main.hs
   other-modules:
+      Contexts
       Paths_haskell_in_depth
   hs-source-dirs:
       app
+      ch02
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5

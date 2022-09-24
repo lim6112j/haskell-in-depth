@@ -23,9 +23,7 @@ evalRPN expr = evalState evalRPN' []
     step "+" = processTops (+)
     step "*" = processTops (*)
     step "-" = processTops (-)
-    step t = case readMaybe t of
-      Just n -> push n
-      Nothing -> undefined
+    step t = push (read t)
     processTops op = flip op <$> pop <*> pop >>= push
 
 isEmpty :: EvalM Bool
