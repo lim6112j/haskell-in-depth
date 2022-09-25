@@ -1,7 +1,10 @@
 module EvalRPNTrans where
 
-import Control.Monad (when)
-import Control.Monad.State (StateT, get, lift, modify, put)
+import Control.Applicative (Alternative (empty))
+import Control.Monad.State (StateT, evalStateT, get, gets, guard, lift, modify, put)
+import Data.Foldable (traverse_)
+import EvalRPN (evalRPN)
+import Text.Read (readMaybe)
 
 type Stack = [Integer]
 
@@ -12,7 +15,24 @@ push x = modify (x :)
 
 pop :: EvalM Integer
 pop = do
-  xs <- get
-  when (null xs) $ lift Nothing
-  put (tail xs)
-  pure (head xs)
+  (x : xs) <- get
+  put xs
+  pure x
+
+oneElementOnStack :: EvalM ()
+oneElementOnStack = do
+  l <- gets length
+  guard (l == 1)
+
+readSafe :: (Read s, Alternative f) => String -> f s
+readSafe str = maybe empty pure (readMaybe str)
+
+evalRPN :: String -> Maybe Integer
+evalRPN str = evalStateT evalRPN' []
+  where
+    evalRPN' = traverse_ step (words str) >> oneElementOnStack >> pop
+    step "+" = processTop (+)
+    step "-" = processTop (-)
+    step "*" = processTop (*)
+    step t = readSafe t >>= push
+    processTop op = flip op <$> pop <*> pop >>= push
