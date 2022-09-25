@@ -63,6 +63,35 @@ library contexts
     , text
   default-language: Haskell2010
 
+executable du
+  main-is: Main.hs
+  other-modules:
+      AppRWST
+      AppTypes
+      Paths_haskell_in_depth
+  hs-source-dirs:
+      du
+  default-extensions:
+      RecordWildCards
+      NamedFieldPuns
+      OverloadedStrings
+  other-extensions:
+      GeneralizedNewtypeDeriving
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , directory ==1.3.*
+    , extra >=1.5 && <1.8
+    , filepath >=1.4.1 && <1.5
+    , fmt
+    , mtl >=2.0 && <2.3
+    , optparse-applicative >=0.14 && <0.17
+    , random
+    , text ==1.2.*
+    , text-show >=3.0 && <4
+    , unix-compat ==0.5.*
+  default-language: Haskell2010
+
 executable evalrpn1
   main-is: evalrpn1.hs
   other-modules:
