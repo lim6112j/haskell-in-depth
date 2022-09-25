@@ -68,6 +68,10 @@ executable du
   other-modules:
       AppRWST
       AppTypes
+      DirTree
+      DiskUsage
+      FileCounter
+      Utils
       Paths_haskell_in_depth
   hs-source-dirs:
       du

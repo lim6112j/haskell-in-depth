@@ -3,7 +3,6 @@ module EvalRPNTrans where
 import Control.Applicative (Alternative (empty))
 import Control.Monad.State (StateT, evalStateT, get, gets, guard, lift, modify, put)
 import Data.Foldable (traverse_)
-import EvalRPN (evalRPN)
 import Text.Read (readMaybe)
 
 type Stack = [Integer]
