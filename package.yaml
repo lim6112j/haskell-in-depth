@@ -1,14 +1,14 @@
-name:                haskell-in-depth
-version:             0.1.0.0
-github:              "githubuser/haskell-in-depth"
-license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2022 Author name here"
+name: haskell-in-depth
+version: 0.1.0.0
+github: "githubuser/haskell-in-depth"
+license: BSD3
+author: "Author name here"
+maintainer: "example@example.com"
+copyright: "2022 Author name here"
 
 extra-source-files:
-- README.md
-- CHANGELOG.md
+  - README.md
+  - CHANGELOG.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -17,104 +17,108 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/haskell-in-depth#readme>
+description: Please see the README on GitHub at <https://github.com/githubuser/haskell-in-depth#readme>
 data-files:
-    - data/*.*
+  - data/*.*
 dependencies:
-- base >= 4.7 && < 5
-- mtl
-- text
-- fmt
-- random
+  - base >= 4.7 && < 5
+  - mtl
+  - text
+  - fmt
+  - random
+  - exceptions
 ghc-options:
-- -Wall
-- -Wcompat
-- -Widentities
-- -Wincomplete-record-updates
-- -Wincomplete-uni-patterns
-- -Wmissing-export-lists
-- -Wmissing-home-modules
-- -Wpartial-fields
-- -Wredundant-constraints
+  - -Wall
+  - -Wcompat
+  - -Widentities
+  - -Wincomplete-record-updates
+  - -Wincomplete-uni-patterns
+  - -Wmissing-export-lists
+  - -Wmissing-home-modules
+  - -Wpartial-fields
+  - -Wredundant-constraints
 
 library:
   source-dirs: src
 internal-libraries:
-   contexts:
-        source-dirs: ch02
-        exposed-modules: Contexts
-        other-modules: []
-        dependencies:
-        - mtl >=2.0 && <2.3
+  contexts:
+    source-dirs: ch02
+    exposed-modules: Contexts
+    other-modules: []
+    dependencies:
+      - mtl >=2.0 && <2.3
 executables:
   haskell-in-depth-exe:
-    main:                Main.hs
+    main: Main.hs
     source-dirs:
-    - app
-    - ch02
+      - app
+      - ch02
     ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
     dependencies:
-    - haskell-in-depth
+      - haskell-in-depth
   person-text:
     main: text-show.hs
     source-dirs: ch02/person
     other-modules: Person
     dependencies:
-        - text-show
+      - text-show
   expr-simple:
     main: Main.hs
     source-dirs: expr
     exposed-modules: Expr
     dependencies:
-        - text-show
+      - text-show
   evalrpn1:
     source-dirs: expr/rpn
     main: evalrpn1.hs
     other-modules: [EvalRPN]
     dependencies:
-    - mtl
+      - mtl
   evalrpn2:
     source-dirs: expr/rpn
     main: evalrpn2.hs
     other-modules: [EvalRPNTrans]
     dependencies:
-    - mtl
+      - mtl
   du:
     source-dirs: du
     main: Main.hs
     dependencies:
-    - mtl >=2.0 && <2.3
-    - filepath >= 1.4.1 && < 1.5
-    - directory >= 1.3 && < 1.4
-    - unix-compat >= 0.5 && < 0.6
-    - optparse-applicative >= 0.14 && < 0.17
-    - text >=1.2 && <1.3
-    - text-show >=3.0 && <4
-    - extra >=1.5 && <1.8
+      - mtl >=2.0 && <2.3
+      - filepath >= 1.4.1 && < 1.5
+      - directory >= 1.3 && < 1.4
+      - unix-compat >= 0.5 && < 0.6
+      - optparse-applicative >= 0.14 && < 0.17
+      - text >=1.2 && <1.3
+      - text-show >=3.0 && <4
+      - extra >=1.5 && <1.8
     default-extensions:
-    - RecordWildCards
-    - NamedFieldPuns
-    - OverloadedStrings
+      - RecordWildCards
+      - NamedFieldPuns
+      - OverloadedStrings
     other-extensions:
-    - GeneralizedNewtypeDeriving
+      - GeneralizedNewtypeDeriving
+  ch07:
+    main: div.hs
+    source-dirs: ch07
 tests:
   haskell-in-depth-test:
-    main:                Spec.hs
-    source-dirs:         test
+    main: Spec.hs
+    source-dirs: test
     ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
     dependencies:
-    - haskell-in-depth
+      - haskell-in-depth
     # Chapter 2
   typeclass-test:
     source-dirs: test
     main: TypeClass-test.hs
     other-modules: []
     dependencies:
-    - haskell-in-depth
-    - random >=1.2 && <1.3
+      - haskell-in-depth
+      - random >=1.2 && <1.3

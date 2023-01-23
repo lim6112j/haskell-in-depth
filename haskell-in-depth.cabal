@@ -45,6 +45,7 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , exceptions
     , fmt
     , mtl
     , random
@@ -59,8 +60,27 @@ library contexts
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , exceptions
     , fmt
     , mtl >=2.0 && <2.3
+    , random
+    , text
+  default-language: Haskell2010
+
+executable ch07
+  main-is: div.hs
+  other-modules:
+      Paths_haskell_in_depth
+  autogen-modules:
+      Paths_haskell_in_depth
+  hs-source-dirs:
+      ch07
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , exceptions
+    , fmt
+    , mtl
     , random
     , text
   default-language: Haskell2010
@@ -89,6 +109,7 @@ executable du
   build-depends:
       base >=4.7 && <5
     , directory ==1.3.*
+    , exceptions
     , extra >=1.5 && <1.8
     , filepath >=1.4.1 && <1.5
     , fmt
@@ -109,6 +130,7 @@ executable evalrpn1
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , exceptions
     , fmt
     , mtl
     , random
@@ -124,6 +146,7 @@ executable evalrpn2
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , exceptions
     , fmt
     , mtl
     , random
@@ -142,6 +165,7 @@ executable expr-simple
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , exceptions
     , fmt
     , mtl
     , random
@@ -162,6 +186,7 @@ executable haskell-in-depth-exe
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , exceptions
     , fmt
     , haskell-in-depth
     , mtl
@@ -178,6 +203,7 @@ executable person-text
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , exceptions
     , fmt
     , mtl
     , random
@@ -197,6 +223,7 @@ test-suite haskell-in-depth-test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , exceptions
     , fmt
     , haskell-in-depth
     , mtl
@@ -212,6 +239,7 @@ test-suite typeclass-test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , exceptions
     , fmt
     , haskell-in-depth
     , mtl
