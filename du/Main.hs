@@ -1,6 +1,3 @@
-module Main where
-
-import AppRWST
 import AppTypes
 import qualified Data.Text.IO as TIO
 import DirTree

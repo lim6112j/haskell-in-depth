@@ -1,6 +1,6 @@
 cabal-version: 2.0
 
--- This file has been generated from package.yaml by hpack version 0.34.4.
+-- This file has been generated from package.yaml by hpack version 0.35.0.
 --
 -- see: https://github.com/sol/hpack
 
@@ -38,6 +38,8 @@ library
       TypeClass
   other-modules:
       Paths_haskell_in_depth
+  autogen-modules:
+      Paths_haskell_in_depth
   hs-source-dirs:
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
@@ -72,6 +74,8 @@ executable du
       DiskUsage
       FileCounter
       Utils
+      Paths_haskell_in_depth
+  autogen-modules:
       Paths_haskell_in_depth
   hs-source-dirs:
       du
@@ -131,6 +135,8 @@ executable expr-simple
   other-modules:
       Expr
       Paths_haskell_in_depth
+  autogen-modules:
+      Paths_haskell_in_depth
   hs-source-dirs:
       expr
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
@@ -147,6 +153,8 @@ executable haskell-in-depth-exe
   main-is: Main.hs
   other-modules:
       Contexts
+      Paths_haskell_in_depth
+  autogen-modules:
       Paths_haskell_in_depth
   hs-source-dirs:
       app
@@ -181,6 +189,8 @@ test-suite haskell-in-depth-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Paths_haskell_in_depth
+  autogen-modules:
       Paths_haskell_in_depth
   hs-source-dirs:
       test
