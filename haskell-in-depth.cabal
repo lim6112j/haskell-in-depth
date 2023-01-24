@@ -67,6 +67,25 @@ library contexts
     , text
   default-language: Haskell2010
 
+executable aeson
+  main-is: aeson.hs
+  other-modules:
+      Paths_haskell_in_depth
+  autogen-modules:
+      Paths_haskell_in_depth
+  hs-source-dirs:
+      aeson
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      aeson >=2.0 && <2.2
+    , base >=4.7 && <5
+    , exceptions
+    , fmt
+    , mtl
+    , random
+    , text
+  default-language: Haskell2010
+
 executable ch07
   main-is: div.hs
   other-modules:
@@ -209,6 +228,27 @@ executable person-text
     , random
     , text
     , text-show
+  default-language: Haskell2010
+
+executable suntimes
+  main-is: Main.hs
+  other-modules:
+      Types
+      Paths_haskell_in_depth
+  autogen-modules:
+      Paths_haskell_in_depth
+  hs-source-dirs:
+      suntimes
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      aeson >=2.0 && <2.2
+    , base >=4.7 && <5
+    , exceptions
+    , fmt
+    , mtl
+    , random
+    , text
+    , time >=1.9 && <2.0
   default-language: Haskell2010
 
 test-suite haskell-in-depth-test

@@ -104,6 +104,17 @@ executables:
   ch07:
     main: div.hs
     source-dirs: ch07
+  suntimes:
+    main: Main.hs
+    source-dirs: suntimes
+    dependencies:
+      - time >= 1.9 && <2.0
+      - aeson >= 2.0 && < 2.2
+  aeson:
+    main: aeson.hs
+    source-dirs: aeson
+    dependencies:
+      - aeson >= 2.0 && < 2.2
 tests:
   haskell-in-depth-test:
     main: Spec.hs
