@@ -110,6 +110,10 @@ executables:
     dependencies:
       - time >= 1.9 && <2.0
       - aeson >= 2.0 && < 2.2
+      - http-client >= 0.6 && < 0.8
+      - req >= 3.0 && < 3.11
+      - optparse-applicative >=0.16 && < 0.17
+      - bytestring >= 0.10 && < 0.11
   aeson:
     main: aeson.hs
     source-dirs: aeson

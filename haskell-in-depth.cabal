@@ -19,6 +19,7 @@ extra-source-files:
     README.md
     CHANGELOG.md
 data-files:
+    data/config.json
     data/dirs.txt
     data/turns.txt
 
@@ -233,6 +234,11 @@ executable person-text
 executable suntimes
   main-is: Main.hs
   other-modules:
+      App
+      GeoCoordsReq
+      ProcessRequest
+      STExcept
+      SunTimes
       Types
       Paths_haskell_in_depth
   autogen-modules:
@@ -243,10 +249,14 @@ executable suntimes
   build-depends:
       aeson >=2.0 && <2.2
     , base >=4.7 && <5
+    , bytestring ==0.10.*
     , exceptions
     , fmt
+    , http-client >=0.6 && <0.8
     , mtl
+    , optparse-applicative ==0.16.*
     , random
+    , req >=3.0 && <3.11
     , text
     , time >=1.9 && <2.0
   default-language: Haskell2010
