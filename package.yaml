@@ -90,9 +90,9 @@ executables:
       - mtl >=2.0 && <2.3
       - filepath >= 1.4.1 && < 1.5
       - directory >= 1.3 && < 1.4
-      - unix-compat >= 0.5 && < 0.6
-      - optparse-applicative >= 0.14 && < 0.17
-      - text >=1.2 && <1.3
+      - unix-compat >= 0.5 && < 0.7
+      - optparse-applicative >= 0.17 && < 0.18
+      - text >=1.0 && <2.1
       - text-show >=3.0 && <4
       - extra >=1.5 && <1.8
     default-extensions:
@@ -111,9 +111,9 @@ executables:
       - time >= 1.9 && <2.0
       - aeson >= 2.0 && < 2.2
       - http-client >= 0.6 && < 0.8
-      - req >= 3.0 && < 3.11
-      - optparse-applicative >=0.16 && < 0.17
-      - bytestring >= 0.10 && < 0.11
+      - req >= 3.13 && < 3.14
+      - optparse-applicative >=0.17 && < 0.18
+      - bytestring >= 0.11 && < 0.12
   aeson:
     main: aeson.hs
     source-dirs: aeson
