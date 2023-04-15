@@ -119,6 +119,10 @@ executables:
     source-dirs: aeson
     dependencies:
       - aeson >= 2.0 && < 2.2
+  temp:
+    main: Temp.hs
+    source-dirs: temp
+    
 tests:
   haskell-in-depth-test:
     main: Spec.hs

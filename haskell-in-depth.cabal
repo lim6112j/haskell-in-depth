@@ -1,6 +1,6 @@
 cabal-version: 2.0
 
--- This file has been generated from package.yaml by hpack version 0.35.0.
+-- This file has been generated from package.yaml by hpack version 0.35.1.
 --
 -- see: https://github.com/sol/hpack
 
@@ -260,6 +260,24 @@ executable suntimes
     , req >=3.0 && <3.11
     , text
     , time >=1.9 && <2.0
+  default-language: Haskell2010
+
+executable temp
+  main-is: Temp.hs
+  other-modules:
+      Paths_haskell_in_depth
+  autogen-modules:
+      Paths_haskell_in_depth
+  hs-source-dirs:
+      temp
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , exceptions
+    , fmt
+    , mtl
+    , random
+    , text
   default-language: Haskell2010
 
 test-suite haskell-in-depth-test
