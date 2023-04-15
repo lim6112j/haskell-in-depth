@@ -135,11 +135,11 @@ executable du
     , filepath >=1.4.1 && <1.5
     , fmt
     , mtl >=2.0 && <2.3
-    , optparse-applicative >=0.14 && <0.17
+    , optparse-applicative ==0.17.*
     , random
-    , text ==1.2.*
+    , text >=1.0 && <2.1
     , text-show >=3.0 && <4
-    , unix-compat ==0.5.*
+    , unix-compat >=0.5 && <0.7
   default-language: Haskell2010
 
 executable evalrpn1
@@ -250,14 +250,14 @@ executable suntimes
   build-depends:
       aeson >=2.0 && <2.2
     , base >=4.7 && <5
-    , bytestring ==0.10.*
+    , bytestring ==0.11.*
     , exceptions
     , fmt
     , http-client >=0.6 && <0.8
     , mtl
-    , optparse-applicative ==0.16.*
+    , optparse-applicative ==0.17.*
     , random
-    , req >=3.0 && <3.11
+    , req ==3.13.*
     , text
     , time >=1.9 && <2.0
   default-language: Haskell2010
