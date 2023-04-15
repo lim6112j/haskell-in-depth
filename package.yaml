@@ -122,6 +122,8 @@ executables:
   temp:
     main: Temp.hs
     source-dirs: temp
+    dependencies:
+      - text
     
 tests:
   haskell-in-depth-test:
