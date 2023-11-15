@@ -1,15 +1,19 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
-import GHC.Generics
+
 import Data.Aeson
 import Data.Text
+import GHC.Generics
 
-data Person = Person {
-  name :: Text
-  , age :: Int
-} deriving (Generic, Show)
+data Person = Person
+  { name :: Text,
+    age :: Int
+  }
+  deriving (Generic, Show)
+
 instance ToJSON Person where
   toEncoding = genericToEncoding defaultOptions
+
 instance FromJSON Person
 
 main :: IO ()
