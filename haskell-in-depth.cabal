@@ -1,6 +1,6 @@
 cabal-version: 2.0
 
--- This file has been generated from package.yaml by hpack version 0.35.1.
+-- This file has been generated from package.yaml by hpack version 0.37.0.
 --
 -- see: https://github.com/sol/hpack
 
@@ -270,6 +270,26 @@ executable temp
       Paths_haskell_in_depth
   hs-source-dirs:
       temp
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , exceptions
+    , fmt
+    , mtl
+    , random
+    , text
+  default-language: Haskell2010
+
+executable temp-proxies
+  main-is: Main.hs
+  other-modules:
+      TempPhantom
+      Paths_haskell_in_depth
+  autogen-modules:
+      Paths_haskell_in_depth
+  hs-source-dirs:
+      ch11
+      ch11/temperature
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5

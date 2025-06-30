@@ -104,6 +104,9 @@ executables:
   ch07:
     main: div.hs
     source-dirs: ch07
+  temp-proxies:
+    main: Main.hs
+    source-dirs: [ch11, ch11/temperature]
   suntimes:
     main: Main.hs
     source-dirs: suntimes
@@ -124,7 +127,7 @@ executables:
     source-dirs: temp
     dependencies:
       - text
-    
+
 tests:
   haskell-in-depth-test:
     main: Spec.hs
