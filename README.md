@@ -3,6 +3,7 @@
 # run
 
             stack build --fast --file-watch --exec haskell-in-depth-exe
+			stack build --fast --file-watch --exec ch07
             stack ghci --ghc-options -w   (warning off)
             <!-- with data file  -->
             stack exec haskell-in-depth-exe -- -r data/turn.txt North

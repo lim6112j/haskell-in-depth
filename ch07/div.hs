@@ -41,7 +41,7 @@ divTestWithRecovery2 a b c =
     isDivideByZero DivByZero = Just ()
     isDivideByZero _ = Nothing
 -- catch & handle
-divTestIO :: Int -> Int -> Int -> IO Int 
+divTestIO :: Int -> Int -> Int -> IO Int
 divTestIO a b c = testComputation a b c `catch` handler
   where
     handler :: MyArithException -> IO Int
@@ -59,4 +59,5 @@ main = do
   divTestWithRecovery2 10 0 10 >>= print  -- tryJust recovered so below code run
   print "div catch exception"
   divTestIO 10 0 2 >>= print -- catch and handler , recovered so below code run
-  print $ 3 `divPure` 0
+  print $ 4 `divPure` 2 -- pure division
+--  print $ 3 `divPure` 0
