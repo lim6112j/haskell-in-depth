@@ -1,6 +1,6 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 module TempPhantom where
-newtype Temp unit = Temp Double deriving (Show, Num, Fractional)
+newtype Temp unit = Temp Double deriving (Num, Fractional)
 data F
 data C
 paperBurning :: Temp F
