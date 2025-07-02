@@ -1,5 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-module TempPhantom where
+module TempPhantom (Temp(..), F, C, paperBurning, absoluteZero, f2c) where
 newtype Temp unit = Temp Double deriving (Num, Fractional)
 data F
 data C
