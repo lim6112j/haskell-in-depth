@@ -2,8 +2,9 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE PolyKinds #-}
 {-# LANGUAGE InstanceSigs #-}
+{-# OPTIONS_GHC -Wno-orphans #-}
 
-module UnitNameProxies where
+module UnitNameProxies(unit) where
 import TempPhantom
 import Data.Proxy
 
