@@ -284,7 +284,9 @@ executable temp-proxies
   main-is: Main.hs
   other-modules:
       TempPhantom
+      TypeOperators
       UnitNameProxies
+      UnitNameTypeApps
       Paths_haskell_in_depth
   autogen-modules:
       Paths_haskell_in_depth
