@@ -1,6 +1,7 @@
 module Main(main) where
 import TempPhantom
 import UnitNameProxies
+import TypeOperators
 main :: IO ()
 main = do
   print $ f2c paperBurning - absoluteZero
