@@ -1,5 +1,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-module TempPhantom (Temp(..), F, C, paperBurning, absoluteZero, f2c) where
+{-# OPTIONS_GHC -Wno-missing-export-lists #-}
+
+module TempPhantom  where
 newtype Temp unit = Temp Double deriving (Num, Fractional)
 data F
 data C

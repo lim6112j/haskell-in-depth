@@ -283,6 +283,7 @@ executable temp
 executable temp-proxies
   main-is: Main.hs
   other-modules:
+      TempKinds
       TempPhantom
       TypeOperators
       UnitNameProxies
